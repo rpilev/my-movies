@@ -1,0 +1,37 @@
+nav {
+  background-color: #3a3a3a;
+  margin: 0px;
+  height: 100%;
+  display: block;
+}
+
+li {
+  background-color: #383838 !important;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 0;
+  padding: 0 !important;
+  border: none !important;
+}
+
+li > a {
+  color: #d80000;
+  font-weight: bold;
+  font-size: 29px;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+}
+
+li > a:hover, li > a:active, li > a:visited, li > a:focus {
+  text-decoration: none !important;
+  color: #d80000;
+}
+
+li:hover {
+  background-color: #232323 !important;
+}
+
+.active {
+  background-color: #232323 !important;
+}
