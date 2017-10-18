@@ -10,13 +10,13 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <div class="container">
+        <div className="container">
           <BrowserRouter>
-              <div class="row">
-                <div class="col-md-3">
+              <div className="row">
+                <div className="col-md-3">
                   <NavBar />
                 </div>
-                <div class="col-md-9">
+                <div className="col-md-9">
                   <Switch>
                     <Route path='/favorites' component={Favorites} />
                     <Route path='/' component={Search} />

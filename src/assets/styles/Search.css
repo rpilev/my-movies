@@ -4,3 +4,11 @@ form > label {
   font-weight: bold;
   padding-top: 5px;
 }
+
+form > button {
+  margin-top: 7px;
+}
+
+.input-form {
+  text-align: left;
+}

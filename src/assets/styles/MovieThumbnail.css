@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  padding: 15px;
+  background-color: #191919;
+  color: #eaeaea;
+  text-align: center;
+  cursor: default;
+}
+.card img {
+  margin: 0 auto 15px auto;
+}
+.card h4 {
+  text-align: center;
+}
+.card .btn {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.card .card-text {
+  min-height: 70px;
+  height: 70px;
+  display: block;
+}
+
+.card .card-img-top {
+  width: 200px;
+  min-height: 256px;
+  height: 256px;
+}
