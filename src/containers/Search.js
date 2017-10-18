@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import '../assets/styles/Search.css';
-import { searchMovies } from '../actions';
+import { searchMovies, addToFavorites, removeFromFavorites } from '../actions';
 import { connect } from 'react-redux';
-import {DebounceInput} from 'react-debounce-input';
+import { DebounceInput } from 'react-debounce-input';
 import MovieThumbnail from '../components/movie_thumbnail';
-import { CONFIG_REQUEST_URL } from '../API_CONFIG';
 
 class Search extends Component {
   constructor(props) {
@@ -15,6 +14,21 @@ class Search extends Component {
     e.preventDefault();
   }
 
+  addToFavorites(id) {
+    this.props.addToFavorites(id);
+  }
+  removeFromFavorites(id) {
+    this.props.removeFromFavorites(id);
+  }
+  checkIfInFavorites(id) {
+    for(let i = 0; i < this.props.favorites.length; i++){
+      if(this.props.favorites[i].id == id) {
+        return false;
+      }    
+    }
+    return true;
+  }
+
   renderResults() {
     const moviesList = this.props.moviesList;
     if(moviesList == null){
@@ -23,7 +37,12 @@ class Search extends Component {
 
     return moviesList.map((result) => {
       return (
-        <MovieThumbnail key={result.id} data={result} />
+        <MovieThumbnail 
+          addToFavorites={ this.checkIfInFavorites(result.id) ? this.addToFavorites.bind(this) : false}
+          removeFromFavorites={ this.removeFromFavorites.bind(this) }
+          key={result.id}
+          data={result}
+        />
       )
     })
   }
@@ -53,10 +72,11 @@ class Search extends Component {
   }
 }
 
-function mapStateToProps({ moviesList }) {
+function mapStateToProps({ moviesList, favorites }) {
   return {
-    moviesList
+    moviesList,
+    favorites
   }
 }
 
-export default connect(mapStateToProps, { searchMovies })(Search);
+export default connect(mapStateToProps, { searchMovies, addToFavorites, removeFromFavorites })(Search);

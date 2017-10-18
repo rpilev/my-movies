@@ -1,0 +1,52 @@
+.details {
+  padding: 25px 0;
+  cursor: default;
+}
+
+.details-img {
+  width: 700px;
+}
+
+.details-tagline {
+  display: inline-block;
+  width: 700px;
+  max-width: 700px;
+}
+
+.details-heading {
+  margin: 10px;
+  font-size: 41px;
+}
+
+.details-overview {
+  width: 700px;
+  font-size: 20px;
+  text-align: left;
+  margin: 10px auto;
+  background-color: #8e8e8e !important;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.details-table {
+  width: 500px;
+  margin: 15px auto;
+  text-align: left;
+}
+
+.details-rating {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.details-list {
+  list-style: none;
+  text-align: left;
+  padding: 0;
+}
+
+.details-list li {
+  background-color: transparent !important;
+  cursor: default;
+  text-align: left;
+}

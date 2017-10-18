@@ -11,12 +11,10 @@
   color: #eaeaea;
   text-align: center;
   cursor: default;
+  width: 20rem;
 }
 .card img {
   margin: 0 auto 15px auto;
-}
-.card h4 {
-  text-align: center;
 }
 .card .btn {
   margin: 10px;
@@ -33,4 +31,11 @@
   width: 200px;
   min-height: 256px;
   height: 256px;
+}
+
+.card .card-title {
+  display: inline-block;
+  font-size: 27px;
+  height: 76px;
+  min-height: 76px;
 }

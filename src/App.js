@@ -5,6 +5,7 @@ import NavBar from './components/navbar'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Favorites from './containers/Favorites';
 import Search from './containers/Search';
+import Details from './containers/Details';
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
                 </div>
                 <div className="col-md-9">
                   <Switch>
+                    <Route path='/details/:id' component={Details} />
                     <Route path='/favorites' component={Favorites} />
                     <Route path='/' component={Search} />
                   </Switch>
