@@ -2,6 +2,7 @@
   <img width="160" src="https://www.themoviedb.org/assets/static_cache/dd25a8d6d44072f1be5a9daf03470526/images/v4/logos/293x302-powered-by-square-green.png">
     <img width="250" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
 </p>
+
 # My Movies
 Front-end demo of a movie search and management system.
 
