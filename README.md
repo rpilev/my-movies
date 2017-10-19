@@ -37,6 +37,13 @@ Install the dependencies
 
     npm install
 
+Get an API key from [https://developers.themoviedb.org/](https://developers.themoviedb.org/)
+
+Rename the file 'API_KEY_FILE.js' in 'src\' to 'API_KEY.js' and edit the contents such that the const 'API_KEY' is equal to your API key
+
+    const API_KEY = 'YOUR API KEY HERE';
+    export default API_KEY;
+
 Run webpack-dev-server
 
     npm run start
