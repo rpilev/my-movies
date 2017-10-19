@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { IMAGE_ROOT_URL } from '../API_CONFIG';
 import '../assets/styles/DetailsBox.css';
-import ReactStars from 'react-stars'
+import ReactStars from 'react-stars';
 
 export default(props) => {
   const release_year = props.data.release_date.substr(0, 4);

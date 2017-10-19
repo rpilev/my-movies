@@ -31,8 +31,8 @@ class Search extends Component {
 
   renderResults() {
     const moviesList = this.props.moviesList;
-    if(moviesList == null){
-      return <div>Initial state</div>
+    if(moviesList == []){
+      return <div>Loading...</div>
     }
 
     return moviesList.map((result) => {

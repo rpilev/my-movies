@@ -1,4 +1,4 @@
-import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from '../actions';
+import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, SUBMIT_REVIEW } from '../actions';
 
 export default function(state=[], action) {
   switch (action.type) {
