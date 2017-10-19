@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="160" src="https://www.themoviedb.org/assets/static_cache/dd25a8d6d44072f1be5a9daf03470526/images/v4/logos/293x302-powered-by-square-green.png">
+    <img width="300" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
+</p>
 # My Movies
 Front-end demo of a movie search and management system.
 
@@ -52,6 +56,7 @@ If no other development servers are currently running on the local machine then 
   * [react-stars](https://github.com/n49/react-stars)
   * [react-truncate](https://github.com/One-com/react-truncate)
 * [Bootstrap](https://github.com/twbs/bootstrap)
+* [TMDb API](https://www.themoviedb.org/)
 
 ## Authors
 * Raul Špilev
