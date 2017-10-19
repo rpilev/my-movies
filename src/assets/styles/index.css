@@ -18,19 +18,46 @@ body {
   /*height: 100%;*/
   width: 100%;
 }
-.container {
-  padding: 0 !important;
-  margin: 0 !important;
+.main-container {
   height: 100%;
-  width: 100%;
 }
-.container .col-md-3 {
-  min-height: 700px;
-}
-.container .col-md-9 {
+
+.content-col {
+  padding: 0 25px 105px 25px;
   text-align: center;
 }
+
 .row {
   height: 100%;
   width: 100%; 
+  margin: 0 !important;
+}
+
+.nav-col{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+footer {
+  width: 100%;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  background-color: #232323;
+  color: #eaeaea;
+  font-size: 12px;
+}
+
+footer p {
+  float: left;
+  max-width: 300px;
+  cursor: default;
+  text-align: left;
+  margin: auto 0;
+  padding: 8px 0;
+}
+
+footer img {
+  width: 150px;
 }

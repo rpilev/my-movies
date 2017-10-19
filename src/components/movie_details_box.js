@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { IMAGE_ROOT_URL } from '../API_CONFIG';
 import '../assets/styles/DetailsBox.css';
 import ReactStars from 'react-stars';
@@ -7,7 +7,13 @@ export default(props) => {
   const release_year = props.data.release_date.substr(0, 4);
   return (
     <div className="details">
-      <img className='details-img' src={`${IMAGE_ROOT_URL}${props.data.backdrop_path}`} alt="" />
+      { props.data.backdrop_path
+        ?
+        <img className='details-img' src={`${IMAGE_ROOT_URL}${props.data.backdrop_path}`} alt="" />
+        :
+        <img className='details-img' src="" alt="" />
+      }
+      
 
       <h4 className='details-heading'>{props.data.title} ({release_year})</h4>
       <i className='details-tagline'>{props.data.tagline}</i><br />

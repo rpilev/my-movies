@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { IMAGE_ROOT_URL } from '../API_CONFIG';
 import '../assets/styles/MovieThumbnail.css';
 import Truncate from 'react-truncate';
@@ -9,7 +9,13 @@ export default(props) => {
 
   return (
     <div className="card">
-      <img className="card-img-top" src={`${IMAGE_ROOT_URL}${props.data.poster_path}`} alt="" />
+      { 
+        props.data.poster_path 
+          ?
+          <img className="card-img-top" src={`${IMAGE_ROOT_URL}${props.data.poster_path}`} alt="" />
+          :
+          <img className="card-img-top" src='' alt="" />
+      }
       <div className="card-body">
         <Truncate 
           className="card-title"

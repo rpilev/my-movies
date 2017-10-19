@@ -12,31 +12,33 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <div className="container">
-          <BrowserRouter>
-            <Route render={({ location }) => (
-              <div className="row">
-                <div className="col-md-3">
-                  <NavBar />
-                </div>
-                <div className="col-md-9">
-                  <ReactCSSTransitionGroup
-                      transitionName="fade"
-                      transitionEnterTimeout={300}
-                      transitionLeaveTimeout={300}
-                  >
-                    <Switch key={location.key} location={location}>
-                      <Route path='/details/:id' component={Details} />
-                      <Route path='/favorites' component={Favorites} />
-                      <Route path='/' component={Search} />
-                    </Switch>
-                  </ReactCSSTransitionGroup>
-                </div>
+        <BrowserRouter>
+          <Route render={({ location }) => (
+            <div className='main-container'>
+              <div className='nav-col'>
+                <NavBar />
               </div>
-            )}
-          />
-          </BrowserRouter>
-        </div>
+              <div className='content-col'>
+                <ReactCSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={300}
+                >
+                  <Switch key={location.key} location={location}>
+                    <Route path='/details/:id' component={Details} />
+                    <Route path='/favorites' component={Favorites} />
+                    <Route path='/' component={Search} />
+                  </Switch>
+                </ReactCSSTransitionGroup>
+              </div>
+            </div>
+          )}
+        />
+        </BrowserRouter>
+        <footer>
+          <p>This product uses the TMDb API but is not endorsed or certified by TMDb. GUI by Raul Špilev &copy; 2017</p>
+          <img src='https://www.themoviedb.org/assets/static_cache/9b3f9c24d9fd5f297ae433eb33d93514/images/v4/logos/408x161-powered-by-rectangle-green.png' alt='' />
+        </footer>
       </div>
     );
   }

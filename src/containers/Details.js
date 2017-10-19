@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMovieDetails, addToFavorites, submitReview, deletetReview } from '../actions';
 import MovieDetailsBox from '../components/movie_details_box';
-import { Link } from 'react-router-dom';
 import ReactStars from 'react-stars'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -10,7 +9,7 @@ class Details extends Component {
   constructor(state) {
     super(state);
     this.state = { 
-      reviewText: '',
+      reviewText: ' ',
       reviewRating: 0,
       editRevew: false
     };
@@ -22,7 +21,7 @@ class Details extends Component {
 
   checkIfInFavorites() {
     for(let i = 0; i < this.props.favorites.length; i++){
-      if(this.props.favorites[i].id == this.props.movieDetails.id) {
+      if(this.props.favorites[i].id === this.props.movieDetails.id) {
         return false;
       }    
     }
@@ -57,7 +56,7 @@ class Details extends Component {
     this.props.deletetReview(this.props.movieDetails.id);
     this.setState({
       reviewText: '',
-      reviewRating: '',
+      reviewRating: 0,
     });
   }
   renderDetails() {
@@ -75,6 +74,33 @@ class Details extends Component {
           transitionLeaveTimeout={500}
         >
           {
+            //show add review box if in favorites and no review exists or if editing currect review
+            ((!this.checkIfInFavorites() &&
+              !this.props.userReviews[this.props.movieDetails.id]) ||
+              this.state.editRevew
+              ) ? 
+            <form onSubmit={this.onReviewFormSubmit.bind(this)} className="input-form">
+              <label>Review:</label><br />
+              <ReactStars
+                className='details-rating'
+                count={10}
+                onChange={this.ratingChanged.bind(this)}
+                value={parseInt(this.state.reviewRating, 10)}
+                size={24}
+                color2={'#ffd700'}
+              />
+              <textarea
+                onInput={this.onReviewInput.bind(this)}
+                type='text'
+                defaultValue={this.state.reviewText}
+                className='form-control'
+              />
+              <br />
+              <input type="submit" value="Ok" className="btn btn-default" />
+            </form> :
+            ''
+          }
+          {
             //show review if it exists
             this.props.userReviews[this.props.movieDetails.id] &&
             this.props.userReviews[this.props.movieDetails.id].reviewText ?
@@ -83,7 +109,7 @@ class Details extends Component {
               <ReactStars
                 className='details-rating'
                 count={10}
-                value={this.props.userReviews[this.props.movieDetails.id].reviewRating}
+                value={parseInt(this.props.userReviews[this.props.movieDetails.id].reviewRating, 10)}
                 edit={false}
                 size={24}
                 color2={'#ffd700'}
@@ -94,39 +120,6 @@ class Details extends Component {
               <button onClick={this.editReview.bind(this)} className='btn btn-secondary'>Edit Review</button>
               <button style={{ marginLeft: 10 + 'px' }} onClick={this.deleteReview.bind(this)} className='btn btn-danger'>Delete Review</button>
             </div> :
-            ''
-          }
-        </ReactCSSTransitionGroup>
-        <ReactCSSTransitionGroup
-          transitionName="fade"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}
-        >
-          {
-            //show add review box if in favorites and no review exists or if editing currect review
-            (!this.checkIfInFavorites() &&
-              !this.props.userReviews[this.props.movieDetails.id] ||
-              this.state.editRevew
-              ) ? 
-            <form onSubmit={this.onReviewFormSubmit.bind(this)} className="input-form">
-              <label>Review:</label><br />
-              <ReactStars
-                className='details-rating'
-                count={10}
-                onChange={this.ratingChanged.bind(this)}
-                value={this.state.reviewRating}
-                size={24}
-                color2={'#ffd700'}
-              />
-              <textarea
-                onInput={this.onReviewInput.bind(this)}
-                type='text'
-                value={this.state.reviewText}
-                className='form-control'
-              />
-              <br />
-              <input type="submit" value="Ok" className="btn btn-default" />
-            </form> :
             ''
           }
         </ReactCSSTransitionGroup>

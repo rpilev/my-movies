@@ -9,6 +9,8 @@ form > button {
   margin-top: 7px;
 }
 
-.input-form {
+.content-col .input-form {
+  max-width: 700px;
   text-align: left;
+  margin: 0 auto;
 }

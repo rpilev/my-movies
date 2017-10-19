@@ -23,7 +23,7 @@ class Search extends Component {
   }
   checkIfInFavorites(id) {
     for(let i = 0; i < this.props.favorites.length; i++){
-      if(this.props.favorites[i].id == id) {
+      if(this.props.favorites[i].id === id) {
         return false;
       }    
     }
@@ -32,7 +32,7 @@ class Search extends Component {
 
   renderResults() {
     const moviesList = this.props.moviesList;
-    if(moviesList == []){
+    if(moviesList === []){
       return <div>Loading...</div>
     }
 
@@ -48,8 +48,7 @@ class Search extends Component {
     })
   }
   onInputChange(e) {
-    console.log(e);
-    if(e.target.value == ''){
+    if(e.target.value === ''){
       return;
     }
     this.setState({ searchTerm: e.target.value }, (() => {

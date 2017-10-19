@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/styles/index.css';
 import './assets/styles/Transitions.css';
+import './assets/styles/Mobile.css';
 import App from './App';
 
 import { Provider } from 'react-redux';
