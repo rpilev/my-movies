@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieThumbnail from '../components/movie_thumbnail';
 import { getMovieDetails, removeFromFavorites } from '../actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class Favorites extends Component {
   removeFromFavorites(id) {
     this.props.removeFromFavorites(id);
   }
   render() {
-    return this.props.favorites.map((result) => {
+    let favoriteThumbnails = this.props.favorites.map((result) => {
       return (
         <MovieThumbnail 
           addToFavorites={false}
@@ -16,8 +17,17 @@ class Favorites extends Component {
           key={result.id}
           data={result}
         />
-      )
-    })
+      );
+    });
+    return (
+      <ReactCSSTransitionGroup
+          transitionName="slidefade"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+      >
+        {favoriteThumbnails}
+      </ReactCSSTransitionGroup>
+    )
   }
 }
 

@@ -12,13 +12,6 @@ export const SUBMIT_REVIEW = 'SUBMIT_REVIEW';
 export const DELETE_REVIEW = 'DELETE_REVIEW';
 
 export function searchMovies(search) {
-  //Check for empty input from user
-  if(search == ''){
-    return {
-      type: SEARCH_MOVIE,
-      payload: null
-    }
-  }
   const url = `${ROOT_URL}&query=${search}`;
   const response = axios.get(url);
   return {
