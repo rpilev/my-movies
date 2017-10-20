@@ -10,7 +10,7 @@ Front-end demo of a movie search and management system.
 
 * Searching for movies by title
 * Adding movies to favorites list
-* Giving favorited movies reviews
+* Giving movies reviews
 
 ## Getting Started
 

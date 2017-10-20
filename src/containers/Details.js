@@ -19,15 +19,6 @@ class Details extends Component {
     this.props.getMovieDetails(this.props.match.params.id);
   }
 
-  checkIfInFavorites() {
-    for(let i = 0; i < this.props.favorites.length; i++){
-      if(this.props.favorites[i].id === this.props.movieDetails.id) {
-        return false;
-      }    
-    }
-    return true;
-  }
-
   onReviewFormSubmit(e) {
     e.preventDefault();
     this.setState({ 
@@ -74,8 +65,8 @@ class Details extends Component {
           transitionLeaveTimeout={500}
         >
           {
-            //show add review box if in favorites and no review exists or if editing currect review
-            ((!this.checkIfInFavorites() &&
+            //show add review box and no review exists or if editing currect review
+            ((
               !this.props.userReviews[this.props.movieDetails.id]) ||
               this.state.editRevew
               ) ? 

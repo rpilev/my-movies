@@ -20,7 +20,7 @@ class App extends Component {
               </div>
               <div className='content-col'>
                 <ReactCSSTransitionGroup
-                    transitionName="fade"
+                    transitionName="routefade"
                     transitionEnterTimeout={300}
                     transitionLeaveTimeout={300}
                 >

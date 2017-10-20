@@ -61,3 +61,11 @@ footer p {
 footer img {
   width: 150px;
 }
+
+.message-text {
+  text-align: left;
+  color: #eaeaea;
+  font-size: 26px;
+  font-weight: bold;
+  padding-top: 5px;
+}

@@ -19,6 +19,11 @@ class Favorites extends Component {
         />
       );
     });
+    if(favoriteThumbnails.length == 0){
+      return (
+        <span className='message-text'>No items in favorites</span>
+      );
+    }
     return (
       <ReactCSSTransitionGroup
           transitionName="slidefade"

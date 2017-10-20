@@ -52,3 +52,22 @@
   opacity: 0;
   transition: opacity 500ms ease-in;
 }
+
+
+
+.routefade-enter {
+  opacity: 0;
+}
+
+.routefade-enter.routefade-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.routefade-leave {
+  opacity: 1;
+}
+
+.routefade-leave.routefade-leave-active {
+  opacity: 0;
+}

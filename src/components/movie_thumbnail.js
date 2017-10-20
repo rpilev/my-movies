@@ -24,7 +24,13 @@ export default(props) => {
         >
           {props.data.title}
         </Truncate> <br />
-        <span>({release_year})</span>
+        {
+          release_year != ''
+          ?
+          <span>({release_year})</span>
+          :
+          <span>&nbsp;</span>
+        }
         <Truncate 
           className="card-text"
           lines={2}
