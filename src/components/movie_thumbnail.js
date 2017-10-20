@@ -25,7 +25,7 @@ export default(props) => {
           {props.data.title}
         </Truncate> <br />
         {
-          release_year != ''
+          release_year !== ''
           ?
           <span>({release_year})</span>
           :

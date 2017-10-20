@@ -23,6 +23,7 @@ class Details extends Component {
     e.preventDefault();
     this.setState({ 
       reviewText: '',
+      reviewRating: 0,
       editRevew: false
     });
     this.props.submitReview(this.props.movieDetails.id, this.state.reviewText, this.state.reviewRating);
@@ -46,8 +47,8 @@ class Details extends Component {
   deleteReview() {
     this.props.deletetReview(this.props.movieDetails.id);
     this.setState({
-      reviewText: '',
-      reviewRating: 0,
+      reviewText: ' ',
+      reviewRating: 0
     });
   }
   renderDetails() {
@@ -65,6 +66,30 @@ class Details extends Component {
           transitionLeaveTimeout={500}
         >
           {
+            //show review if it exists and if not editing
+            this.props.userReviews[this.props.movieDetails.id] &&
+            this.props.userReviews[this.props.movieDetails.id].reviewText &&
+            !this.state.editRevew
+             ?
+            <div>
+              <h4>User review:</h4>
+              <ReactStars
+                className='details-rating'
+                count={10}
+                value={parseFloat(this.props.userReviews[this.props.movieDetails.id].reviewRating, 10)}
+                edit={false}
+                size={24}
+                color2={'#ffd700'}
+              />
+              <p style={{whiteSpace: 'pre-line'}} className='details-overview'>
+                {this.props.userReviews[this.props.movieDetails.id].reviewText}
+              </p>
+              <button onClick={this.editReview.bind(this)} className='btn btn-secondary'>Edit Review</button>
+              <button style={{ marginLeft: 10 + 'px' }} onClick={this.deleteReview.bind(this)} className='btn btn-danger'>Delete Review</button>
+            </div> :
+            ''
+          }
+          {
             //show add review box and no review exists or if editing currect review
             ((
               !this.props.userReviews[this.props.movieDetails.id]) ||
@@ -76,7 +101,7 @@ class Details extends Component {
                 className='details-rating'
                 count={10}
                 onChange={this.ratingChanged.bind(this)}
-                value={parseInt(this.state.reviewRating, 10)}
+                value={parseFloat(this.state.reviewRating, 10)}
                 size={24}
                 color2={'#ffd700'}
               />
@@ -89,28 +114,6 @@ class Details extends Component {
               <br />
               <input type="submit" value="Ok" className="btn btn-default" />
             </form> :
-            ''
-          }
-          {
-            //show review if it exists
-            this.props.userReviews[this.props.movieDetails.id] &&
-            this.props.userReviews[this.props.movieDetails.id].reviewText ?
-            <div>
-              <h4>User review:</h4>
-              <ReactStars
-                className='details-rating'
-                count={10}
-                value={parseInt(this.props.userReviews[this.props.movieDetails.id].reviewRating, 10)}
-                edit={false}
-                size={24}
-                color2={'#ffd700'}
-              />
-              <p style={{whiteSpace: 'pre-line'}} className='details-overview'>
-                {this.props.userReviews[this.props.movieDetails.id].reviewText}
-              </p>
-              <button onClick={this.editReview.bind(this)} className='btn btn-secondary'>Edit Review</button>
-              <button style={{ marginLeft: 10 + 'px' }} onClick={this.deleteReview.bind(this)} className='btn btn-danger'>Delete Review</button>
-            </div> :
             ''
           }
         </ReactCSSTransitionGroup>
