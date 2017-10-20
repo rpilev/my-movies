@@ -9,7 +9,7 @@ export default(props) => {
     <div className="details">
       { props.data.backdrop_path
         ?
-        <img className='details-img' src={`${IMAGE_ROOT_URL}${props.data.backdrop_path}`} alt="" />
+        <img className='details-img img-fluid' src={`${IMAGE_ROOT_URL}${props.data.backdrop_path}`} alt="" />
         :
         <img className='details-img' src="" alt="" />
       }

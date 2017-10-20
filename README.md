@@ -72,3 +72,8 @@ If no other development servers are currently running on the local machine then 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/rpilev/school-system/blob/master/LICENSE) file for details
+
+## External links
+
+Deployed preview available at:
+[http://my-movies.surge.sh/](http://my-movies.surge.sh/)

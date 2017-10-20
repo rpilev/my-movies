@@ -10,7 +10,27 @@
   footer img {
     margin-top: 20px;
   }
+  .card {
+    width: 15rem !important;
+  }
 }
+@media (max-width: 771px) {
+  .details-overview, .details-tagline {
+    max-width: 320px !important;
+  }
+}
+@media (max-width: 510px) {
+  .details-table {
+    max-width: 320px !important;
+  }
+  .review-form, .user-review {
+    padding-bottom: 50px;
+  }
+  .details-overview, .details-tagline {
+    max-width: 320px !important;
+  }
+}
+
 @media (max-width: 319px) {
   footer p {
     display: none;

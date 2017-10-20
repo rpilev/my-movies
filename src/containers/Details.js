@@ -71,7 +71,7 @@ class Details extends Component {
             this.props.userReviews[this.props.movieDetails.id].reviewText &&
             !this.state.editRevew
              ?
-            <div>
+            <div className='user-review'>
               <h4>User review:</h4>
               <ReactStars
                 className='details-rating'
@@ -95,7 +95,7 @@ class Details extends Component {
               !this.props.userReviews[this.props.movieDetails.id]) ||
               this.state.editRevew
               ) ? 
-            <form onSubmit={this.onReviewFormSubmit.bind(this)} className="input-form">
+            <form onSubmit={this.onReviewFormSubmit.bind(this)} className="input-form review-form">
               <label>Review:</label><br />
               <ReactStars
                 className='details-rating'
