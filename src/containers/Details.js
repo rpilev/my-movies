@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { 
           getMovieDetails,
           getMovieReviews,
+          resetMovieDetails,
           addToFavorites,
           submitReview,
           deletetReview
@@ -23,6 +24,8 @@ class Details extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0,0);
+    this.props.resetMovieDetails();
     this.props.getMovieDetails(this.props.match.params.id);
     this.props.getMovieReviews(this.props.match.params.id);
   }
@@ -160,6 +163,7 @@ function mapStateToProps({ movieDetails, favorites, userReviews, movieReviews })
 export default connect(mapStateToProps,
   { 
     getMovieDetails,
+    resetMovieDetails,
     getMovieReviews,
     addToFavorites,
     submitReview,

@@ -31,6 +31,13 @@ export function getMovieDetails(id) {
   }
 }
 
+export function resetMovieDetails() {
+  return {
+    type: GET_MOVIE_DETAILS,
+    payload: null
+  }
+}
+
 export function getMovieReviews(id) {
   const url = `${DETAILS_ROOT_URL}${id}/reviews?api_key=${API_KEY}`;
 

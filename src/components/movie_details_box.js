@@ -9,13 +9,18 @@ export default(props) => {
     <div className="details">
       { props.data.backdrop_path
         ?
-        <img className='details-img img-fluid' src={`${IMAGE_ROOT_URL}${props.data.backdrop_path}`} alt="" />
+        <img className='details-img' src={`${IMAGE_ROOT_URL}${props.data.backdrop_path}`} alt="" />
         :
-        <img className='details-img' src="" alt="" />
+        ""
       }
       
+      {
+        release_year ?
+        <h4 className='details-heading'>{props.data.title} ({release_year})</h4>
+        :
+        <h4 className='details-heading'>{props.data.title}</h4>
+      }
 
-      <h4 className='details-heading'>{props.data.title} ({release_year})</h4>
       <i className='details-tagline'>{props.data.tagline}</i><br />
       <ReactStars
         className='details-rating'

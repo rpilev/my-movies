@@ -4,7 +4,9 @@
 }
 
 .details-img {
-  width: 700px;
+  min-width: 700px;
+  min-height: 393px;
+  background-color: #3a3a3a;
 }
 
 .details-tagline {

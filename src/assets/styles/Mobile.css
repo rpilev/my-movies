@@ -18,6 +18,13 @@
   .details-overview, .details-tagline {
     max-width: 320px !important;
   }
+  .details-img {
+    width: 350px !important;
+    height: 197px !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    background-color: #3a3a3a;
+  }
 }
 @media (max-width: 510px) {
   #root {
@@ -43,6 +50,7 @@
     font-size: 19px !important;
     padding: 20px !important;
   }
+
 }
 
 @media (max-width: 319px) {
