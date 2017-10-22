@@ -9,8 +9,9 @@ Front-end demo of a movie search and management system.
 **Features include:**
 
 * Searching for movies by title
+* Viewing movie details and reviews
 * Adding movies to favorites list
-* Giving movies reviews
+* Giving movies personal reviews
 
 ## Getting Started
 

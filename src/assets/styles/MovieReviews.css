@@ -1,0 +1,10 @@
+.movie-review .author-span {
+  margin-top: 35px;
+  text-align: right;
+  display: block;
+  font-style: italic;
+}
+
+.movie-review {
+  margin-bottom: 35px !important;
+}

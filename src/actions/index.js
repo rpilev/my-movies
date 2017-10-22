@@ -6,6 +6,7 @@ const ROOT_URL = `${SEARCH_ROOT_URL}?api_key=${API_KEY}`;
 
 export const SEARCH_MOVIE = 'SEARCH_MOVIE';
 export const GET_MOVIE_DETAILS = 'GET_MOVIE_DETAILS';
+export const GET_MOVIE_REVIEWS = 'GET_MOVIE_REVIEWS';
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 export const SUBMIT_REVIEW = 'SUBMIT_REVIEW';
@@ -26,6 +27,16 @@ export function getMovieDetails(id) {
   const response = axios.get(url);
   return {
     type: GET_MOVIE_DETAILS,
+    payload: response
+  }
+}
+
+export function getMovieReviews(id) {
+  const url = `${DETAILS_ROOT_URL}${id}/reviews?api_key=${API_KEY}`;
+
+  const response = axios.get(url);
+  return {
+    type: GET_MOVIE_REVIEWS,
     payload: response
   }
 }

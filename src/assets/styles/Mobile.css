@@ -20,14 +20,28 @@
   }
 }
 @media (max-width: 510px) {
+  #root {
+    padding-bottom: 180px;
+  }
+  .content-col {
+    padding: 0 5px;
+  }
   .details-table {
-    max-width: 320px !important;
+    max-width: 280px !important;
+    font-size: 10px !important;
+  }
+  .details-table a {
+    display: inline-block;
+    max-width: 100px;
+    word-wrap: break-word;
   }
   .review-form, .user-review {
-    padding-bottom: 50px;
+    max-width: 280px !important;
   }
   .details-overview, .details-tagline {
-    max-width: 320px !important;
+    max-width: 280px !important;
+    font-size: 19px !important;
+    padding: 20px !important;
   }
 }
 
@@ -35,4 +49,8 @@
   footer p {
     display: none;
   }
+}
+
+.user-review {
+  margin: 0 auto !important;
 }

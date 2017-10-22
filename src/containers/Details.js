@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getMovieDetails, addToFavorites, submitReview, deletetReview } from '../actions';
+import { 
+          getMovieDetails,
+          getMovieReviews,
+          addToFavorites,
+          submitReview,
+          deletetReview
+        } from '../actions';
 import MovieDetailsBox from '../components/movie_details_box';
+import MovieReviews from '../components/movie_reviews';
 import ReactStars from 'react-stars'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
@@ -17,6 +24,7 @@ class Details extends Component {
 
   componentDidMount() {
     this.props.getMovieDetails(this.props.match.params.id);
+    this.props.getMovieReviews(this.props.match.params.id);
   }
 
   onReviewFormSubmit(e) {
@@ -58,8 +66,19 @@ class Details extends Component {
     }
     return (
       <div>
-
         <MovieDetailsBox data={this.props.movieDetails} />
+
+        { this.props.movieReviews.length !== 0 ?
+          <h3>Reviews:</h3>
+          :
+          ''
+        }
+        {
+          this.props.movieReviews.map(function(review) {
+            return <MovieReviews key={review.id} data={review} />
+          })
+        }
+
         <ReactCSSTransitionGroup
           transitionName="fade"
           transitionEnterTimeout={500}
@@ -72,7 +91,7 @@ class Details extends Component {
             !this.state.editRevew
              ?
             <div className='user-review'>
-              <h4>User review:</h4>
+              <h4>Personal Review:</h4>
               <ReactStars
                 className='details-rating'
                 count={10}
@@ -96,7 +115,7 @@ class Details extends Component {
               this.state.editRevew
               ) ? 
             <form onSubmit={this.onReviewFormSubmit.bind(this)} className="input-form review-form">
-              <label>Review:</label><br />
+              <label>Personal Review:</label><br />
               <ReactStars
                 className='details-rating'
                 count={10}
@@ -129,12 +148,20 @@ class Details extends Component {
   }
 }
 
-function mapStateToProps({ movieDetails, favorites, userReviews }) {
+function mapStateToProps({ movieDetails, favorites, userReviews, movieReviews }) {
   return {
     movieDetails,
     favorites,
-    userReviews
+    userReviews,
+    movieReviews
   }
 }
 
-export default connect(mapStateToProps, { getMovieDetails, addToFavorites, submitReview, deletetReview })(Details);
+export default connect(mapStateToProps,
+  { 
+    getMovieDetails,
+    getMovieReviews,
+    addToFavorites,
+    submitReview,
+    deletetReview
+  })(Details);
